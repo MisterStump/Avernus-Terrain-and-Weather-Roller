@@ -42,18 +42,10 @@ hideRollSections()
 
 //When roll button is clicked
 function roll(){
+    rollHumidity()
+    rollPrecip()
+    rollWind()
     
-    //perform rolls
-    rollDict_humidity = rollDict(rt_humidity["die_type"], rt_humidity["rolls"])
-    showRollSections()
-    //Humidity
-    humidity_description.innerText = rt_humidity["description"]
-    humidity_rollType.innerText = rt_humidity["die_type"]
-    humidity_rollResult.innerText = rollDict_humidity["result"]
-    humidity_rollValue.innerText = rollDict_humidity["dict"][value]
-    if ("effect" in rollDict_humidity["dict"]){
-        humidity_effect.innerText = rollDict_humidity["dict"]["effect"]
-    }
     
 
     
@@ -66,6 +58,58 @@ function clear(){
 
 
 
+function rollHumidity(){
+    //perform rolls
+    rollDict_humidity = rollDict(rt_humidity["die_type"], rt_humidity["rolls"])
+    showRollSections()
+    //Humidity
+    humidity_description.innerText = rt_humidity["description"]
+    humidity_rollType.innerText = rt_humidity["die_type"]
+    humidity_rollResult.innerText = rollDict_humidity["result"]
+    humidity_rollValue.innerText = rollDict_humidity["dict"]["value"]
+    if ("effect" in rollDict_humidity["dict"]){
+        humidity_effect.innerText = rollDict_humidity["dict"]["effect"]
+    } else {
+        humidity_effect.innerText = ""
+    }
+}
+
+function rollPrecip(){
+    //perform rolls
+    rollDict_precip = rollDict(rt_precip["die_type"], rt_precip["rolls"])
+    showRollSections()
+    //precip
+    precip_description.innerText = rt_precip["description"]
+    precip_rollType.innerText = rt_precip["die_type"]
+    precip_rollResult.innerText = rollDict_precip["result"]
+    precip_rollValue.innerText = rollDict_precip["dict"]["value"]
+    if ("effect" in rollDict_precip["dict"]){
+        precip_effect.innerText = rollDict_precip["dict"]["effect"]
+    } else {
+        precip_effect.innerText = ""
+    }
+}
+
+function rollWind(){
+    //perform rolls
+    rollDict_wind = rollDict(rt_wind["die_type"], rt_wind["rolls"])
+    showRollSections()
+    //wind
+    wind_description.innerText = rt_wind["description"]
+    wind_rollType.innerText = rt_wind["die_type"]
+    wind_rollResult.innerText = rollDict_wind["result"]
+    wind_rollValue.innerText = rollDict_wind["dict"]["value"]
+    if ("effect" in rollDict_wind["dict"]){
+        wind_effect.innerText = rollDict_wind["dict"]["effect"]
+    } else {
+        wind_effect.innerText = ""
+    }
+}
+
+
+
+
+
 
 
 
@@ -75,9 +119,7 @@ function clear(){
 function rollDict(dieType, dictList){
     const rollResult = getRandomInt(1, dieType)
     for (const dict of dictList){
-        if (dict["start"] >= rollResult && dict["end"] <= rollResult){
-            console.log(rollResult)
-            console.log(dict)
+        if (dict["start"] <= rollResult && dict["end"] >= rollResult){
             return {"result": rollResult, "dict": dict}
         }
     }

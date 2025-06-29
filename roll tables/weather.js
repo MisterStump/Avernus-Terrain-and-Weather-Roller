@@ -26,7 +26,7 @@ var rt_humidity = {
     ]
 };
 
-var rt_precipitation = {
+var rt_precip = {
     "description" : "Precipitation refers to not only water falling from the sky in Avernus, it includes all supernatural phenomenon that falls.",
     "die_type" : 20,
     "rolls" :[
