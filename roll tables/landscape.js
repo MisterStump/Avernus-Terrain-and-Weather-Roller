@@ -1,71 +1,63 @@
-var rt_terrain = {
+var rt_elevation = {
+    "name"        : "elevation",
     "description" : "The elevation, texture and material, and water level. The outcome of rolling on these tables is a prompt rather than exact terrain. Feel free to add or change based on your own game.",
     "die_type" : 20,
     "rolls" :[
         {
             "start"  : 1,
             "end"    : 3,
-            "value"  : "Flat",
-            "subroll": "rt_terrain_composition"
+            "value"  : "Flat"
         },
         {
             "start" : 4,
             "end"   : 6,
-            "value" : "Hills",
-            "subroll": "rt_terrain_composition"
+            "value" : "Hills"
         },
         {
             "start" : 7,
             "end"   : 9,
-            "value" : "Mountain",
-            "subroll": "rt_terrain_composition"
+            "value" : "Mountain"
         },
         {
             "start" : 10,
             "end"   : 11,
-            "value" : "Canyon",
-            "subroll": "rt_terrain_composition"
+            "value" : "Canyon"
         },
         {
             "start" : 12,
             "end"   : 13,
-            "value" : "Volcano",
-            "subroll": "rt_terrain_composition"
+            "value" : "Volcano"
         },
         {
             "start" : 14,
             "end"   : 15,
-            "value" : "Vally",
-            "subroll": "rt_terrain_composition"
+            "value" : "Vally"
         },
         {
             "start" : 16,
             "end"   : 17,
-            "value" : "Mesa",
-            "subroll": "rt_terrain_composition"
+            "value" : "Mesa"
         },
         {
             "start" : 18,
             "end"   : 18,
-            "value" : "Cliff",
-            "subroll": "rt_terrain_composition"
+            "value" : "Cliff"
         },
         {
             "start" : 19,
             "end"   : 19,
-            "value" : "Basin",
-            "subroll": "rt_terrain_composition"
+            "value" : "Basin"
         },
         {
             "start" : 20,
             "end"   : 20,
-            "value" : "Mud",
-            "subroll": "rt_terrain_composition"
+            "value" : "Mud"
         },
     ]
 };
 
-var rt_terrain_composition = {
+var rt_composition = {
+    "name"        : "composition",
     "die_type" : 20,
     "rolls" :[
         {
@@ -112,6 +104,7 @@ var rt_terrain_composition = {
 };
 
 var rt_river = {
+    "name"        : "river",
     "description" : "If there is a river, and if so, the appearance of river.",
     "die_type" : 6,
     "rolls" :[

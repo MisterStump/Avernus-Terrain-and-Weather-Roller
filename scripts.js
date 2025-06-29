@@ -1,40 +1,34 @@
 
+let rollMasterData = {
+    "humidity": rt_humidity,
+    "precipitation": rt_precipitation,
+    "wind": rt_wind,
+    "elevation": rt_elevation,
+    "composition": rt_composition,
+    "river": rt_river
+}
 
 // buttons
 let button_roll = document.getElementById("button_roll")
 let button_clear = document.getElementById("button_clear")
-
-// humidity section elements
-let humidity_description = document.getElementById("humidity_description")
-let humidity_table = document.getElementById("humidity_table")
-let humidity_rollType = document.getElementById("humidity_rollType")
-let humidity_rollResult = document.getElementById("humidity_rollResult")
-let humidity_rollValue = document.getElementById("humidity_rollValue")
-let humidity_effect = document.getElementById("humidity_effect")
-
-// precipitation section elements
-let precip_description = document.getElementById("precip_description")
-let precip_table = document.getElementById("precip_table")
-let precip_rollType = document.getElementById("precip_rollType")
-let precip_rollResult = document.getElementById("precip_rollResult")
-let precip_rollValue = document.getElementById("precip_rollValue")
-let precip_effect = document.getElementById("precip_effect")
-
-// wind section elements
-let wind_description = document.getElementById("wind_description")
-let wind_table = document.getElementById("wind_table")
-let wind_rollType = document.getElementById("wind_rollType")
-let wind_rollResult = document.getElementById("wind_rollResult")
-let wind_rollValue = document.getElementById("wind_rollValue")
-let wind_effect = document.getElementById("wind_effect")
-
 //Add listener to buttons to trigger functions
 button_roll.addEventListener("click", () => {roll()});
 button_clear.addEventListener("click", () => {clear()});
 
+//Populate descripotions, die types, etc
+for (const dataLabel in rollMasterData){
+    populateBasicRollBoxInfo(rollMasterData[dataLabel])
+}
+
 //Hide the roll sections at first
 hideRollSections()
 
+
+
+const headerSections = document.querySelectorAll("div.rbHeader")
+for (const sect of headerSections){
+    sect.addEventListener("click", () => {console.log("AAAA")});
+}
 
 
 
@@ -42,9 +36,9 @@ hideRollSections()
 
 //When roll button is clicked
 function roll(){
-    rollHumidity()
-    rollPrecip()
-    rollWind()
+    for (const name in rollMasterData){
+        performRoll(rollMasterData[name])
+    }
     
     
 
@@ -58,53 +52,47 @@ function clear(){
 
 
 
-function rollHumidity(){
-    //perform rolls
-    rollDict_humidity = rollDict(rt_humidity["die_type"], rt_humidity["rolls"])
-    showRollSections()
-    //Humidity
-    humidity_description.innerText = rt_humidity["description"]
-    humidity_rollType.innerText = rt_humidity["die_type"]
-    humidity_rollResult.innerText = rollDict_humidity["result"]
-    humidity_rollValue.innerText = rollDict_humidity["dict"]["value"]
-    if ("effect" in rollDict_humidity["dict"]){
-        humidity_effect.innerText = rollDict_humidity["dict"]["effect"]
+function performRoll(rollTable){
+    //Get a random (rolled) entry
+    const roll = getRollDict(rollTable["die_type"], rollTable["rolls"])
+    //Find section
+    const name = rollTable["name"]
+    const section = document.querySelector('div#' + name)
+    //Update Roll
+    const rollDiv = section.querySelector('div.rbRollResult div.rollBoxSectionBody')
+    rollDiv.innerText = roll["result"]
+    //Update Value
+    const valueDiv = section.querySelector('div.rbRollValue div.rollBoxSectionBody')
+    valueDiv.innerText = roll["dict"]["value"]
+    //Update Effect
+    const effectSect = section.querySelector('div.rbEffect')
+    const effectDiv = section.querySelector('div.rbEffect div.rollBoxSectionBody')
+    if ("effect" in roll["dict"]){
+        //Effect: yes
+        effectDiv.innerText = roll["dict"]["effect"]
+        effectSect.style.display = "block"
     } else {
-        humidity_effect.innerText = ""
+        //Effect: no
+        effectDiv.innerText = ""
+        effectSect.style.display = "none"
     }
 }
 
-function rollPrecip(){
-    //perform rolls
-    rollDict_precip = rollDict(rt_precip["die_type"], rt_precip["rolls"])
-    showRollSections()
-    //precip
-    precip_description.innerText = rt_precip["description"]
-    precip_rollType.innerText = rt_precip["die_type"]
-    precip_rollResult.innerText = rollDict_precip["result"]
-    precip_rollValue.innerText = rollDict_precip["dict"]["value"]
-    if ("effect" in rollDict_precip["dict"]){
-        precip_effect.innerText = rollDict_precip["dict"]["effect"]
-    } else {
-        precip_effect.innerText = ""
+function populateBasicRollBoxInfo(rollTable){
+    const name = rollTable["name"]
+    const section = document.querySelector('div#' + name)
+    // Add description and make it visible
+    if ("description" in rollTable){
+        const descBox = section.querySelector('div.rbDesc')
+        descBox.innerText = rollTable["description"]
+        descBox.style.display = "block"
     }
+    // Add die type
+    const dieTypeBox = section.querySelector('div.rbDieType > div.rollBoxSectionBody')
+    dieTypeBox.innerText = rollTable["die_type"]
 }
 
-function rollWind(){
-    //perform rolls
-    rollDict_wind = rollDict(rt_wind["die_type"], rt_wind["rolls"])
-    showRollSections()
-    //wind
-    wind_description.innerText = rt_wind["description"]
-    wind_rollType.innerText = rt_wind["die_type"]
-    wind_rollResult.innerText = rollDict_wind["result"]
-    wind_rollValue.innerText = rollDict_wind["dict"]["value"]
-    if ("effect" in rollDict_wind["dict"]){
-        wind_effect.innerText = rollDict_wind["dict"]["effect"]
-    } else {
-        wind_effect.innerText = ""
-    }
-}
+
 
 
 
@@ -116,7 +104,7 @@ function rollWind(){
 
 
 //Rolls and returns a value for the given list of potential rolls. Returns a dict with roll result and dict
-function rollDict(dieType, dictList){
+function getRollDict(dieType, dictList){
     const rollResult = getRandomInt(1, dieType)
     for (const dict of dictList){
         if (dict["start"] <= rollResult && dict["end"] >= rollResult){
@@ -136,22 +124,15 @@ function getRandomInt(min, max) {
 
 //Reveals all sections involving rolls
 function showRollSections(){
-    humidity_description.style.display = "block"
-    precip_description.style.display = "block"
-    wind_description.style.display = "block"
-    humidity_table.style.display = "block"
-    precip_table.style.display = "block"
-    wind_table.style.display = "block"
+    //humidity_description.style.display = "block"
 }
 
 //Hides all sections involving rolls
 function hideRollSections(){
-    humidity_description.style.display = "none"
-    precip_description.style.display = "none"
-    wind_description.style.display = "none"
-    humidity_table.style.display = "none"
-    precip_table.style.display = "none"
-    wind_table.style.display = "none"
+    const effectBoxList = document.getElementsByClassName("rbEffect")
+    for (effectBox of effectBoxList){
+        effectBox.style.display = "none"
+    }
 }
 
 

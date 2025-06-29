@@ -1,4 +1,5 @@
 var rt_humidity = {
+    "name"        : "humidity",
     "description" : "Avernus is similar to a desert in that it lacks fresh water. However, there are pockets of humidity after a large battle. Ichor and viscera evaporate in the hot atmosphere and collect in localized areas. They humidity is never comfortable.",
     "die_type" : 20,
     "rolls" :[
@@ -26,7 +27,8 @@ var rt_humidity = {
     ]
 };
 
-var rt_precip = {
+var rt_precipitation = {
+    "name"        : "precipitation",
     "description" : "Precipitation refers to not only water falling from the sky in Avernus, it includes all supernatural phenomenon that falls.",
     "die_type" : 20,
     "rolls" :[
@@ -69,6 +71,7 @@ var rt_precip = {
 };
 
 var rt_wind = {
+    "name"        : "wind",
     "description" : "Rapid fluctuations in temperature forms strong winds in Avernus.",
     "die_type" : 4,
     "rolls" :[

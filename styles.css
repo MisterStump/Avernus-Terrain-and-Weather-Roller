@@ -1,0 +1,94 @@
+/* Define color scheme */
+:root {
+  --color_background: #000;
+  --color_primary: #2660A4;
+  --color_secondary: #F19953;
+  --color_tirtiary: #cbcfcf;
+  --color_accent: #56351E;
+  --font_color_light: #FFFFFF;
+  --font_color_dark: #000000;
+}
+
+
+/* Entire page */
+body {
+    background-color: var(--color_background);
+}
+
+/* 3 column layout for the types of rollers */
+.column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*grid layout for rollBox */
+.rollBox {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr 1fr 5fr;
+    margin-bottom: 10px;
+}
+[class^='rb'] {
+    background-color: var(--color_tirtiary);
+    color: var(--font_color_light);
+}
+.rbHeader {
+    grid-column: 1 / 5;
+    grid-row: 1;
+    padding: 3px;
+    text-align: center;
+    background-color: var(--color_primary);
+}
+.rbDesc {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    padding: 8px;
+    display: "none";
+    color: var(--font_color_dark)
+}
+.rbDieType {
+    grid-column: 1;
+    grid-row: 3;
+    padding: 1px;
+    text-align: center;
+}
+.rbRollResult {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 1px;
+    text-align: center;
+}
+.rbRollValue {
+    grid-column: 3 / 5;
+    grid-row: 3;
+    padding: 1px;
+    text-align: center;
+}
+.rbEffect {
+    grid-column: 1 / 5;
+    grid-row: 4;
+    padding: 1px;
+    display: "none";
+}
+/*rollbox part extra stylings*/
+.rollBoxSectionHead {
+    padding: 2px;
+    background-color: var(--color_primary);
+    text-align: center;
+}
+.rollBoxSectionBody {
+    background-color: var(--color_tirtiary);
+    padding: 4px;
+    color: var(--font_color_dark)
+}
+.rbEffect > .rollBoxSectionHead {
+    padding: 2px;
+    background-color: var(--color_accent);
+}

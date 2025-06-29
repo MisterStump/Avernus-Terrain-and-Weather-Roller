@@ -1,4 +1,5 @@
 var rt_disaster = {
+    "name"        : "disaster",
     "description" : "Avernus is a dangerous place. Even the inhabitants will all agree that the most frightening thing in this plane is its weather.",
     "die_type" : 100,
     "rolls" :[
