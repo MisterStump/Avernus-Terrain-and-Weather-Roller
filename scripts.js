@@ -1,5 +1,4 @@
 
-hideRollSections()
 
 // buttons
 let button_roll = document.getElementById("button_roll")
@@ -30,25 +29,67 @@ let wind_rollValue = document.getElementById("wind_rollValue")
 let wind_effect = document.getElementById("wind_effect")
 
 //Add listener to buttons to trigger functions
-button_roll.addEventListener("click", roll);
+button_roll.addEventListener("click", () => {roll()});
 button_clear.addEventListener("click", () => {clear()});
 
+//Hide the roll sections at first
+hideRollSections()
 
-console.log("TestA")
+
+
+
 
 
 //When roll button is clicked
 function roll(){
-    console.log("roll")
+    
+    //perform rolls
+    rollDict_humidity = rollDict(rt_humidity["die_type"], rt_humidity["rolls"])
     showRollSections()
+    //Humidity
+    humidity_description.innerText = rt_humidity["description"]
+    humidity_rollType.innerText = rt_humidity["die_type"]
+    humidity_rollResult.innerText = rollDict_humidity["result"]
+    humidity_rollValue.innerText = rollDict_humidity["dict"][value]
+    if ("effect" in rollDict_humidity["dict"]){
+        humidity_effect.innerText = rollDict_humidity["dict"]["effect"]
+    }
+    
+
+    
 }
 
 //When clear button is clicked
 function clear(){
-    humidity_description.innerText = "Clear"
-    console.log("Clear")
     hideRollSections()
 }
+
+
+
+
+
+
+
+
+//Rolls and returns a value for the given list of potential rolls. Returns a dict with roll result and dict
+function rollDict(dieType, dictList){
+    const rollResult = getRandomInt(1, dieType)
+    for (const dict of dictList){
+        if (dict["start"] >= rollResult && dict["end"] <= rollResult){
+            console.log(rollResult)
+            console.log(dict)
+            return {"result": rollResult, "dict": dict}
+        }
+    }
+}
+
+//Gets a random # betwene the 2 numbers provided (inclusive)
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 
 //Reveals all sections involving rolls
