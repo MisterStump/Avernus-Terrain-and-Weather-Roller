@@ -5,12 +5,14 @@ let rollMasterData = {
     "wind": rt_wind,
     "elevation": rt_elevation,
     "composition": rt_composition,
-    "river": rt_river
+    "river": rt_river,
+    "riverAppearance": rt_river_appearance,
+    "disaster": rt_disaster
 }
 
 // buttons
-let button_roll = document.getElementById("button_roll")
-let button_clear = document.getElementById("button_clear")
+const button_roll = document.getElementById("button_roll")
+const button_clear = document.getElementById("button_clear")
 //Add listener to buttons to trigger functions
 button_roll.addEventListener("click", () => {roll()});
 button_clear.addEventListener("click", () => {clear()});
@@ -60,22 +62,24 @@ function performRoll(rollTable){
     const section = document.querySelector('div#' + name)
     //Update Roll
     const rollDiv = section.querySelector('div.rbRollResult div.rollBoxSectionBody')
-    rollDiv.innerText = roll["result"]
+    rollDiv.innerHTML = roll["result"]
     //Update Value
     const valueDiv = section.querySelector('div.rbRollValue div.rollBoxSectionBody')
-    valueDiv.innerText = roll["dict"]["value"]
+    valueDiv.innerHTML = roll["dict"]["value"]
     //Update Effect
     const effectSect = section.querySelector('div.rbEffect')
     const effectDiv = section.querySelector('div.rbEffect div.rollBoxSectionBody')
     if ("effect" in roll["dict"]){
         //Effect: yes
-        effectDiv.innerText = roll["dict"]["effect"]
+        effectDiv.innerHTML = roll["dict"]["effect"]
         effectSect.style.display = "block"
     } else {
         //Effect: no
-        effectDiv.innerText = ""
+        effectDiv.innerHTML = ""
         effectSect.style.display = "none"
     }
+    //Hide or show conditional tables
+    conditionalTables(name, roll)
 }
 
 function populateBasicRollBoxInfo(rollTable){
@@ -84,16 +88,28 @@ function populateBasicRollBoxInfo(rollTable){
     // Add description and make it visible
     if ("description" in rollTable){
         const descBox = section.querySelector('div.rbDesc')
-        descBox.innerText = rollTable["description"]
+        descBox.style.padding = "4px 14px"
+        descBox.innerHTML = rollTable["description"]
         descBox.style.display = "block"
     }
     // Add die type
     const dieTypeBox = section.querySelector('div.rbDieType > div.rollBoxSectionBody')
-    dieTypeBox.innerText = rollTable["die_type"]
+    dieTypeBox.innerHTML = "d" + rollTable["die_type"]
 }
 
-
-
+// Will showor hide specific rollTables if they are conditional
+// Based off of the "subtable" field
+function conditionalTables(name, roll){
+    //River Appearance
+    if (name=="river"){
+        const raDiv = document.querySelector("#riverAppearance")
+        if ("subroll" in roll["dict"]){
+            raDiv.style.display = "grid"
+        } else {
+            raDiv.style.display = "none"
+        }
+    }
+}
 
 
 
@@ -129,10 +145,30 @@ function showRollSections(){
 
 //Hides all sections involving rolls
 function hideRollSections(){
+    // Effect section
     const effectBoxList = document.getElementsByClassName("rbEffect")
     for (effectBox of effectBoxList){
         effectBox.style.display = "none"
     }
+    //Roll result values
+    for (const name in rollMasterData){
+        //Find section
+        //const name = rollTable["name"]
+        const section = document.querySelector('div#' + name)
+        //Clear Roll
+        const rollDiv = section.querySelector('div.rbRollResult div.rollBoxSectionBody')
+        rollDiv.innerHTML = ""
+        //Clear Value
+        const valueDiv = section.querySelector('div.rbRollValue div.rollBoxSectionBody')
+        valueDiv.innerHTML = ""
+        //Clear Effect
+        const effectDiv = section.querySelector('div.rbEffect div.rollBoxSectionBody')
+        effectDiv.innerHTML = ""
+    }
+    //Conditional section - River Appearance
+    const raDiv = document.querySelector("#riverAppearance")
+    raDiv.style.display = "none"
+
 }
 
 

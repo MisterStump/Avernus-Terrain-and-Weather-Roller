@@ -1,6 +1,6 @@
 /* Define color scheme */
 :root {
-  --color_background: #000;
+  --color_background: #474747;
   --color_primary: #2660A4;
   --color_secondary: #F19953;
   --color_tirtiary: #cbcfcf;
@@ -13,6 +13,20 @@
 /* Entire page */
 body {
     background-color: var(--color_background);
+}
+
+/* Bar across top*/
+div.topOfSite {
+    width: 100%;
+    background-color: var(--color_accent);
+}
+
+
+
+
+/* Headers */
+h2 {
+    color: var(--font_color_light)
 }
 
 /* 3 column layout for the types of rollers */
@@ -49,7 +63,8 @@ body {
 .rbDesc {
     grid-column: 1 / 5;
     grid-row: 2;
-    padding: 8px;
+    /*padding set by script*/
+    padding: 0px;
     display: "none";
     color: var(--font_color_dark)
 }
@@ -91,4 +106,16 @@ body {
 .rbEffect > .rollBoxSectionHead {
     padding: 2px;
     background-color: var(--color_accent);
+}
+/*conditiona section hiding*/
+#riverAppearance {
+    display: none;
+}
+
+/*Helper table for additional info*/
+table.helperTable {
+    text-align: left;
+}
+table.helperTable td, table.helperTable th {
+    padding: 0 15px;
 }

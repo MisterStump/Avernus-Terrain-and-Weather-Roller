@@ -30,13 +30,13 @@ var rt_disaster = {
             "start" : 94,
             "end"   : 94,
             "value" : "Stygian flood",
-            "effect": "The river Styx swell in size due to influx of souls or by powerful magica cast in the lower planes. During a flood, the river swells in double, or even triple in it's width unexpectedly.<br>Creatures on foot must make a DC 17 DEX saving throw to out run the flood. Escaping in a vehicle requires a helm skill check DC 13. A failure does not mean full exposure to river styx.<br>On <b>the first failure</b>, creatures are splashed by small drops of the river, losing a piece of memory permanently. (the character or DM decides)<br>A <b>second failure</b> represents longer exposure to river styx, They forget the name of a loved one and all memories associated with them for the next 7 days.<br>A <b>third failure</b> time exposes the creature to the full effects of the river. (DC 20 feeblemind)<br>Success at any point allows the creature to succeed in escaping the sudden flood."
+            "effect": "The river Styx swell in size due to influx of souls or by powerful magica cast in the lower planes. During a flood, the river swells in double, or even triple in it's width unexpectedly.<br><br>Creatures on foot must make a DC 17 DEX saving throw to out run the flood. Escaping in a vehicle requires a helm skill check DC 13. A failure does not mean full exposure to river styx.<br><br>On <b>the first failure</b>, creatures are splashed by small drops of the river, losing a piece of memory permanently. (the character or DM decides)<br><br>A <b>second failure</b> represents longer exposure to river styx, They forget the name of a loved one and all memories associated with them for the next 7 days.<br><br>A <b>third failure</b> time exposes the creature to the full effects of the river. (DC 20 feeblemind)<br><br>Success at any point allows the creature to succeed in escaping the sudden flood."
         },
         {
             "start" : 95,
             "end"   : 95,
             "value" : "Planar disturbance",
-            "effect": "Portals connecting to other planes or teleportation spells cast on Avernus have a 10% chance of failing. In addition, portals appear randomly and take curious souls to somewhere else or to an adjacent plane.<br>When a creature steps into a portal, roll a d 20, on a 4 or higher the creature is taken to a random, location in Avernus.<br>On a 3 the creature is taken to the Wandering Emporium.<br>On a 2 the creature is taken to the frozen landscape of Cania, taking 4d8 cold damage and return to the original position after 1 minute.<br>On a 1 the creature is taken to a realm of slime and fungus. Make a WIS saving throw or become poisoned and see vision of death for the next 1d4 days."
+            "effect": "Portals connecting to other planes or teleportation spells cast on Avernus have a 10% chance of failing. In addition, portals appear randomly and take curious souls to somewhere else or to an adjacent plane.<br><br>When a creature steps into a portal, roll a d 20, on a 4 or higher the creature is taken to a random, location in Avernus.<br><br>On a 3 the creature is taken to the Wandering Emporium.<br><br>On a 2 the creature is taken to the frozen landscape of Cania, taking 4d8 cold damage and return to the original position after 1 minute.<br><br>On a 1 the creature is taken to a realm of slime and fungus. Make a WIS saving throw or become poisoned and see vision of death for the next 1d4 days."
         },
         {
             "start" : 96,
@@ -54,13 +54,13 @@ var rt_disaster = {
             "start" : 98,
             "end"   : 98,
             "value" : "Earthquake",
-            "effect": "The ground cracks and structures break and crumble. Each creature must make a Dexterity saving throw DC 16 to avoid falling debris. On a failure, they take 4d6 bludgeoning damage and are knocked prone, half damage and they are not knocked prone on a success. A creature makes the save every minute in the area of effect of an earthquake.<br>A creature with nothing above them does not need to make this save."
+            "effect": "The ground cracks and structures break and crumble. Each creature must make a Dexterity saving throw DC 16 to avoid falling debris. On a failure, they take 4d6 bludgeoning damage and are knocked prone, half damage and they are not knocked prone on a success. A creature makes the save every minute in the area of effect of an earthquake.<br><br>A creature with nothing above them does not need to make this save."
         },
         {
             "start" : 99,
             "end"   : 99,
             "value" : "Soulburn wildfire",
-            "effect": "While some inhabitants are completely immune to the burning of fire, they are not immune to the corrupting effects of Avernus wildfire. This blue flames seem to scream as it consumes everything in its path.<br>Soulburn fire leaps across creature and objects alike to seek out souls. A creature caught in the blaze takes 4d6 necrotic damage at the beginning of each round. A creature that took this damage must make a DEX save DC 14 to put themselves out. Any creature in 10 feet radius must make the same save or take the damage themselves."
+            "effect": "While some inhabitants are completely immune to the burning of fire, they are not immune to the corrupting effects of Avernus wildfire. This blue flames seem to scream as it consumes everything in its path.<br><br>Soulburn fire leaps across creature and objects alike to seek out souls. A creature caught in the blaze takes 4d6 necrotic damage at the beginning of each round. A creature that took this damage must make a DEX save DC 14 to put themselves out. Any creature in 10 feet radius must make the same save or take the damage themselves."
         },
         {
             "start" : 100,

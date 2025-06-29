@@ -129,6 +129,7 @@ var rt_river = {
 };
 
 var rt_river_appearance = {
+    "name"        : "riverAppearance",
     "die_type" : 6,
     "rolls" :[
         {

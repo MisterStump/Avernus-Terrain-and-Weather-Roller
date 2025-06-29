@@ -9,13 +9,17 @@
 </head>
 
 <body>
-  <h1>Avertnus Terrain and Weather Roller (in development)</h1>
-  <button type="button" id="button_roll">Roll</button>
-  <button type="button" id="button_clear">Clear</button>
+  <div class="topOfSite">
+    <h1>Avertnus Terrain and Weather Roller (in development)</h1>
+    <button type="button" id="button_roll">Roll</button>
+    <button type="button" id="button_clear">Clear</button>
+  </div>
+  
 
   <!--First column - Weather-->
   <div class="row">
     <div class="column">
+      <h2>Weather</h2>
       <!--Humidity-->
       <div class="rollBox" id="humidity">
         <div class="rbHeader">Humidity</div>
@@ -84,6 +88,7 @@
 
     <!--Second column - Landscape-->
     <div class="column">
+      <h2>Landscape</h2>
       <!--Elevation-->
       <div class="rollBox" id="elevation">
         <div class="rbHeader">Elevation and Feature</div>
@@ -147,13 +152,92 @@
           <div class="rollBoxSectionBody"></div>
         </div>
       </div>
+      <!--River Appearance-->
+      <div class="rollBox" id="riverAppearance">
+        <div class="rbHeader">River Appearance</div>
+        <div class="rbDesc"></div>
+        <div class="rbDieType">
+          <div class="rollBoxSectionHead">Die Type</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbRollResult">
+          <div class="rollBoxSectionHead">Roll</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbRollValue">
+          <div class="rollBoxSectionHead">Result</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbEffect">
+          <div class="rollBoxSectionHead">Effect</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+      </div>
 
     </div>
     
 
     <!--Third column - Disaster-->
     <div class="column">
-      C
+      <h2>Disaster</h2>
+      <!--Disaster-->
+      <div class="rollBox" id="disaster">
+        <div class="rbHeader">Disaster</div>
+        <div class="rbDesc"></div>
+        <div class="rbDieType">
+          <div class="rollBoxSectionHead">Die Type</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbRollResult">
+          <div class="rollBoxSectionHead">Roll</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbRollValue">
+          <div class="rollBoxSectionHead">Result</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+        <div class="rbEffect">
+          <div class="rollBoxSectionHead">Effect</div>
+          <div class="rollBoxSectionBody"></div>
+        </div>
+      </div>
+
+      <div class="rbHelper">
+        <div class="rollBoxSectionHead">Sheltering</div>
+        <div class="rollBoxSectionBody">
+          The party as a group can make a perception check to spot a safe shelter from any disaster. The effectiveness of the shelter range from half damage from disasters to full protection. The party can make additional perception checks to look for another shelter after 1 minute of travel.
+          <br><br>
+
+          A disaster can last as long and effect an area as large as the DM wishes. However, if you don't like arbitrarily assigning numbers you could roll 1d4 to determine number of hours it lasts, and 1d4 for number of miles it effects.
+          <br><br>
+
+          <table class="helperTable">
+            <tr>
+              <th>Perception check</th>
+              <th>Shelter capability</th>
+            </tr>
+            <tr>
+              <td>9></td>
+              <td>Half damage from effects</td>
+            </tr>
+            <tr>
+              <td>10-14</td>
+              <td>Advantage and half damage against effects</td>
+            </tr>
+            <tr>
+              <td>>14</td>
+              <td>Full protection</td>
+            </tr>
+          </table>
+
+          <br>
+          Shelters can be natural canyons, caves, city ruins, or the carcass of a large creatures.
+        </div>
+        
+      </div>
+      
+
+
     </div>
   </div> 
 
