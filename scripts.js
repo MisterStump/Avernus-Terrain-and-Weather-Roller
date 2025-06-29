@@ -109,6 +109,15 @@ function conditionalTables(name, roll){
             raDiv.style.display = "none"
         }
     }
+    //Disaster (hide helper table)
+    if (name=="disaster"){
+        const dDiv = document.querySelector(".rbHelper")
+        if (roll["dict"]["value"] != "No disaster"){
+            dDiv.style.display = "block"
+        } else {
+            dDiv.style.display = "none"
+        }
+    }
 }
 
 
@@ -168,7 +177,9 @@ function hideRollSections(){
     //Conditional section - River Appearance
     const raDiv = document.querySelector("#riverAppearance")
     raDiv.style.display = "none"
-
+    //Conditional section - Disaster sheltering
+    const dDiv = document.querySelector(".rbHelper")
+    dDiv.style.display = "none"
 }
 
 
