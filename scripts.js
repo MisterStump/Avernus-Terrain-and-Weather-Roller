@@ -30,21 +30,23 @@ let wind_rollValue = document.getElementById("wind_rollValue")
 let wind_effect = document.getElementById("wind_effect")
 
 //Add listener to buttons to trigger functions
-button_roll.addEventListener("click", roll, false);
-button_clear.addEventListener("click", clear, false);
+button_roll.addEventListener("click", roll);
+button_clear.addEventListener("click", () => {clear()});
 
 
-
+console.log("TestA")
 
 
 //When roll button is clicked
 function roll(){
-
+    console.log("roll")
     showRollSections()
 }
 
 //When clear button is clicked
 function clear(){
+    humidity_description.innerText = "Clear"
+    console.log("Clear")
     hideRollSections()
 }
 
