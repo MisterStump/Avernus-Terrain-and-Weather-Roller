@@ -1,10 +1,10 @@
 /* Define color scheme */
 :root {
-  --color_background: #FFF6E6;
-  --color_primary:    #EAD9BA;
-  --color_secondary:  #A58C5D;
-  --color_tirtiary:   #806739;
-  --color_accent:     #9D5962;
+  --color_background: #fffbf4;
+  --color_primary:    #e7dcc6;
+  --color_secondary:  #998257;
+  --color_tirtiary:   #b39f7c;
+  --color_accent:     #962131;
   --font_color_light: #FFFFFF;
   --font_color_dark:  #000000;
 }
@@ -17,18 +17,21 @@ body {
 
 /* Bar across top with main title and buttons*/
 .topOfSite {
-    width: 100%;
+    width: 91.7%;
     display: grid;
     grid-template-columns: 8fr 2fr;
     font-size: 250%;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 15px;
+    padding: 0px 15px;
+    margin-bottom: 10px;
 }
 /* Title at top of each of the 3 columns */
 .topOfSection {
     font-size: 150%;
     color: var(--font_color_dark);
     font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    text-align: center;
 }
 /* Buttons */
 button {
@@ -41,6 +44,11 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+/* Top right of header where buttons are */
+#topRight {
+    margin-left: auto;
+    margin-right: 0;
+}
 
 
 
@@ -48,8 +56,8 @@ button {
 /* 3 column layout for the types of rollers */
 .column {
     float: left;
-    width: 32.5%;
-    padding: 5px;
+    width: 30%;
+    padding: 10px;
 }
 .row:after {
     content: "";
