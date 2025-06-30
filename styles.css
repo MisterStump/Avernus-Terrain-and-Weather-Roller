@@ -1,12 +1,12 @@
 /* Define color scheme */
 :root {
-  --color_background: #474747;
-  --color_primary: #2660A4;
-  --color_secondary: #F19953;
-  --color_tirtiary: #cbcfcf;
-  --color_accent: #56351E;
+  --color_background: #FFF6E6;
+  --color_primary:    #EAD9BA;
+  --color_secondary:  #A58C5D;
+  --color_tirtiary:   #806739;
+  --color_accent:     #9D5962;
   --font_color_light: #FFFFFF;
-  --font_color_dark: #000000;
+  --font_color_dark:  #000000;
 }
 
 
@@ -15,24 +15,40 @@ body {
     background-color: var(--color_background);
 }
 
-/* Bar across top*/
-div.topOfSite {
+/* Bar across top with main title and buttons*/
+.topOfSite {
     width: 100%;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    font-size: 250%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+}
+/* Title at top of each of the 3 columns */
+.topOfSection {
+    font-size: 150%;
+    color: var(--font_color_dark);
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Buttons */
+button {
     background-color: var(--color_accent);
+    border: none;
+    color: var(--font_color_light);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
 
 
-
-/* Headers */
-h2 {
-    color: var(--font_color_light)
-}
 
 /* 3 column layout for the types of rollers */
 .column {
     float: left;
-    width: 30%;
+    width: 32.5%;
     padding: 5px;
 }
 .row:after {
@@ -50,7 +66,7 @@ h2 {
     margin-bottom: 10px;
 }
 [class^='rb'] {
-    background-color: var(--color_tirtiary);
+    background-color: var(--color_primary);
     color: var(--font_color_light);
 }
 .rbHeader {
@@ -58,7 +74,8 @@ h2 {
     grid-row: 1;
     padding: 3px;
     text-align: center;
-    background-color: var(--color_primary);
+    background-color: var(--color_secondary);
+    font-weight: bold;
 }
 .rbDesc {
     grid-column: 1 / 5;
@@ -95,11 +112,11 @@ h2 {
 /*rollbox part extra stylings*/
 .rollBoxSectionHead {
     padding: 2px;
-    background-color: var(--color_primary);
+    background-color: var(--color_tirtiary);
     text-align: center;
 }
 .rollBoxSectionBody {
-    background-color: var(--color_tirtiary);
+    background-color: var(--color_primary);
     padding: 4px;
     color: var(--font_color_dark)
 }

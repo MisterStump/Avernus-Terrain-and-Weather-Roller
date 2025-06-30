@@ -10,16 +10,22 @@
 
 <body>
   <div class="topOfSite">
-    <h1>Avertnus Terrain and Weather Roller (in development)</h1>
-    <button type="button" id="button_roll">Roll</button>
-    <button type="button" id="button_clear">Clear</button>
+    <div id="topLeft">
+      Avertnus Terrain and Weather Roller
+    </div>
+    <div id="topRight">
+      <button type="button" id="button_roll">Roll</button>
+      <button type="button" id="button_clear">Clear</button>
+    </div>
+
+    
   </div>
   
 
   <!--First column - Weather-->
   <div class="row">
     <div class="column">
-      <h2>Weather</h2>
+      <div class="topOfSection">Weather</div>
       <!--Humidity-->
       <div class="rollBox" id="humidity">
         <div class="rbHeader">Humidity</div>
@@ -88,7 +94,7 @@
 
     <!--Second column - Landscape-->
     <div class="column">
-      <h2>Landscape</h2>
+      <div class="topOfSection">Landscape</div>
       <!--Elevation-->
       <div class="rollBox" id="elevation">
         <div class="rbHeader">Elevation and Feature</div>
@@ -179,7 +185,7 @@
 
     <!--Third column - Disaster-->
     <div class="column">
-      <h2>Disaster</h2>
+      <div class="topOfSection">Disaster</div>
       <!--Disaster-->
       <div class="rollBox" id="disaster">
         <div class="rbHeader">Disaster</div>
